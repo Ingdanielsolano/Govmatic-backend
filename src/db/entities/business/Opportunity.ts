@@ -11,61 +11,67 @@ import { OpportunityFundingCategoryActivity } from "./OpportunityFundingCategory
 export class Opportunity {
 
     @PrimaryGeneratedColumn({ type: "bigint", name: "id" })
-    id: string;
+    id: Number;
 
-    @Column("character varying", { length: 100, name: "title" })
-    title: string;
+    @Column("character varying", { length: 500, name: "title" })
+    title: String;
+
+    @Column("int", { name: "code" })
+    code: Number;
 
     @Column("character varying", { length: 45, name: "number" })
-    number: string;
+    number: String;
 
     @Column("date", { name: "openDate" })
-    openDate: Date;
+    openDate: String;
 
-    @Column("date", { name: "closeDate" })
-    closeDate: Date;
+    @Column("date", { name: "closeDate", nullable: true })
+    closeDate: String;
 
     @Column("character varying", { length: 45, name: "status" })
-    status: string;
+    status: String;
 
-    @Column("text", { name: 'synopsisDesc' })
-    synopsisDesc: string;
+    @Column("text", { name: 'synopsisDesc', nullable: true })
+    synopsisDesc: String;
 
-    @Column("date", { name: "responseDate" })
-    responseDate: string;
+    @Column("date", { name: "responseDate", nullable: true })
+    responseDate: String;
 
-    @Column("character varying", { length: 100, name: "fundingDescLinkUrl" })
-    fundingDescLinkUrl: string;
+    @Column("character varying", { length: 100, name: "fundingDescLinkUrl", nullable: true })
+    fundingDescLinkUrl: String;
 
-    @Column("character varying", { length: 45, name: "fundingDescLinkDesc" })
-    fundingDescLinkDesc: string;
+    @Column("character varying", { length: 45, name: "fundingDescLinkDesc", nullable: true })
+    fundingDescLinkDesc: String;
 
     @Column("date", { name: "postingDate" })
-    postingDate: string;
+    postingDate: String;
 
-    @Column("date", { name: "archiveDate" })
-    archiveDate: string;
+    @Column("date", { name: "archiveDate", nullable: true })
+    archiveDate: String;
 
-    @Column("smallint", { name: 'costSharing' })
-    costSharing: string;
+    @Column("character varying", { name: 'costSharing', nullable: true })
+    costSharing: String;
 
-    @Column("int", { name: 'numberOfAwards' })
-    numberOfAwards: string;
+    @Column("int", { name: 'numberOfAwards', nullable: true })
+    numberOfAwards: String;
 
-    @Column("int", { name: 'estimatedFunding' })
-    estimatedFunding: string;
+    @Column("int", { name: 'estimatedFunding', nullable: true })
+    estimatedFunding: String;
 
-    @Column("int", { name: 'awardCeiling' })
-    awardCeiling: string;
+    @Column("int", { name: 'awardCeiling', nullable: true })
+    awardCeiling: String;
 
-    @Column("int", { name: 'awardFloor' })
-    awardFloor: string;
+    @Column("int", { name: 'awardFloor', nullable: true })
+    awardFloor: String;
 
-    @Column("text", { name: 'applicationElegibilityDesc' })
-    applicationElegibilityDesc: string;
+    @Column("text", { name: 'applicationElegibilityDesc', nullable: true })
+    applicationElegibilityDesc: String;
 
     @Column("character varying", { length: 45, name: "docType" })
-    docType: string;
+    docType: String;
+
+    @Column("date", { name: "last_update" })
+    lastUpdate: String;
 
     @ManyToOne(() => Agency, (agency: Agency) => agency.opportunities, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     @JoinColumn({ name: 'agency' })
@@ -79,7 +85,7 @@ export class Opportunity {
     cfdas: Cfdas[];
 
     @OneToMany(() => OpportunityApplicationType, (applicationTypes: OpportunityApplicationType) => applicationTypes.opportunity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
-    applicationTypes: OpportunityApplicationType[];
+    applicantTypes: OpportunityApplicationType[];
 
     @OneToMany(() => OpportunityFundingCategoryActivity, (opportunityFundingCategoryActivity: OpportunityFundingCategoryActivity) => opportunityFundingCategoryActivity.opportunity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     fundingCategoryActivities: OpportunityFundingCategoryActivity[];

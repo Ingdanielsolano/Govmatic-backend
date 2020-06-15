@@ -2,19 +2,19 @@ import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColum
 
 import { OpportunityApplicationType } from "./OpportunityApplicationTypes";
 
-@Entity("application_type", { schema: "business" })
-export class ApplicationType {
+@Entity("applicant_type", { schema: "business" })
+export class ApplicantType {
 
     @PrimaryGeneratedColumn({ type: "bigint", name: "id" })
     id: string;
 
     @Column("character varying", { name: "description", length: 250 })
-    description: string;
+    description: String;
 
     @Column("int", { name: "code" })
-    code: string;
+    code: String;
 
-    @OneToMany(() => OpportunityApplicationType, (opportunityApplicationType: OpportunityApplicationType) => opportunityApplicationType.applicationType, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    @OneToMany(() => OpportunityApplicationType, (opportunityApplicationType: OpportunityApplicationType) => opportunityApplicationType.applicantTypes, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     opportunities: OpportunityApplicationType[];
 
 }

@@ -8,10 +8,10 @@ export class Cfdas {
     id: string;
 
     @Column("character varying", { name: "number", length: 45 })
-    number: string;
+    number: String;
 
     @Column("character varying", { name: "programTitle", length: 250 })
-    programTitle: string;
+    programTitle: String;
 
     @ManyToOne(() => Opportunity, (opportunity: Opportunity) => opportunity.cfdas, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     @JoinColumn({ name: 'opportunity' })

@@ -8,10 +8,10 @@ export class Category {
     id: string;
 
     @Column("character varying", { name: "name", length: 45 })
-    name: string;
+    name: String;
 
     @Column("character varying", { name: "description", length: 100 })
-    description: string;
+    description: String;
 
     @OneToMany(() => Opportunity, (opportunity: Opportunity) => opportunity.category, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     opportunities: Opportunity[];

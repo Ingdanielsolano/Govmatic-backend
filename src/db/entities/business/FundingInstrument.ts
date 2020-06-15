@@ -8,10 +8,10 @@ export class FundingInstrument {
     id: string;
 
     @Column("character varying", { name: "description", length: 100 })
-    description: string;
+    description: String;
 
     @Column("character varying", { name: "code", length: 50 })
-    code: string;
+    code: String;
 
     @OneToMany(() => OpportunityFundingInstrument, (opportunityFundingInstruments: OpportunityFundingInstrument) => opportunityFundingInstruments.fundingInstrument, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     opportunities: OpportunityFundingInstrument[];

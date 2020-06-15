@@ -6,6 +6,7 @@ export const APP_NAME = process.env.APP_NAME;
 export const APP_HOST = process.env.APP_HOST;
 export const APP_URL_PREFIX = process.env.APP_URL_PREFIX;
 export const APP_PORT = process.env.APP_PORT;
+export const MAX_ROWS = process.env.MAX_ROWS;
 
 export const URL_SERVER = `${APP_HOST}:${APP_PORT}/${APP_URL_PREFIX}`;
 

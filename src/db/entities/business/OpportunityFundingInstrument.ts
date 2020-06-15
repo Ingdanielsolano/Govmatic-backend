@@ -8,7 +8,7 @@ export class OpportunityFundingInstrument {
     @PrimaryGeneratedColumn({ type: "bigint", name: "id" })
     id: string;
 
-    @ManyToOne(() => Opportunity, (opportunity: Opportunity) => opportunity.applicationTypes, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    @ManyToOne(() => Opportunity, (opportunity: Opportunity) => opportunity.fundingInstruments, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     @JoinColumn({ name: 'opportunity' })
     opportunity: Opportunity;
 
