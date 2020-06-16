@@ -1,5 +1,3 @@
-import { Opportunity } from "../../../db/entities/business/Opportunity";
-import { Agency } from "../../../db/entities/business/Agency";
 
 export class GrantListItem {
     id: Number;
@@ -10,7 +8,5 @@ export class GrantListItem {
     openDate: String;
     closeDate: String;
     oppStatus: String;
-    docType: String;
-    cfdaList: Number[]
 
 }

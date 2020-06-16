@@ -1,6 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 
-import { OpportunityApplicationType } from "./OpportunityApplicationTypes";
+import { OpportunityApplicantType } from "./OpportunityApplicantTypes";
 
 @Entity("applicant_type", { schema: "business" })
 export class ApplicantType {
@@ -14,7 +14,7 @@ export class ApplicantType {
     @Column("int", { name: "code" })
     code: String;
 
-    @OneToMany(() => OpportunityApplicationType, (opportunityApplicationType: OpportunityApplicationType) => opportunityApplicationType.applicantTypes, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
-    opportunities: OpportunityApplicationType[];
+    @OneToMany(() => OpportunityApplicantType, (opportunityApplicantType: OpportunityApplicantType) => opportunityApplicantType.applicantTypes, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    opportunities: OpportunityApplicantType[];
 
 }

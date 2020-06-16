@@ -1,0 +1,51 @@
+{
+    "opportunityNumber": "G20AS00077",
+    "opportunityTitle": "Cooperative Ecosystem Studies Unit, Pacific Northwest CESU",
+    "agencyDetails": {
+        "code": "USGS",
+        "agencyName": "Geological Survey",
+        "agencyCode": "DOI-USGS1",
+        "topAgencyCode": "DOI"
+    },
+    "cfdas": [
+        {
+            "id": 382559,
+            "opportunityId": 327703,
+            "cfdaNumber": "15.808",
+            "programTitle": "U.S. Geological Survey Research and Data Collection"
+        }
+    ],
+    "originalDueDate": "Jun 30, 2020 12:00:00 AM EDT",
+    "docType": "synopsis",
+    "synopsis": [],
+    "opportunityPkgs": [
+        {
+            "id": 262185,
+            "cfdaNumber": "15.808",
+            "openingDate": "Jun 15, 2020 12:00:00 AM EDT",
+            "closingDate": "Jun 28, 2020 12:00:00 AM EDT",
+            "competitionId": "G20AS00077",
+            "competitionTitle": "Cooperative Ecosystem Studies Unit, Pacific Northwest CESU",
+            "packageId": "PKG00262185"
+        }
+    ],
+    "synopsisAttachmentFolders": [
+        {
+            "id": 47184,
+            "opportunityId": 327703,
+            "folderType": "Full Announcement",
+            "folderName": "FUNDING OPPORTUNITY",
+            "lastUpdatedDate": "Jun 15, 2020 09:20:28 AM EDT",
+            "synopsisAttachments": [
+                {
+                    "id": 299623,
+                    "opportunityId": 327703,
+                    "mimeType": "application/msword",
+                    "fileName": "FUNDING OPPORTUNITY.doc",
+                    "fileDescription": "FULL ANNOUNCEMENT",
+                    "synopsisAttFolderId": 47184
+                }
+            ]
+        }
+    ]
+}

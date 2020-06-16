@@ -19,7 +19,7 @@ export class GetGrantDetail {
         if (grantJson.status != 'SUCCESS')
             return grantJson
             
-        console.log(JSON.stringify(grantJson.payload));
+            
         return { status: 'SUCCESS', message: 'Data obtained', payload: this.parseJsonToGrant(grantJson) }
     }
 

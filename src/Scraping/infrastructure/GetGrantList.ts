@@ -21,7 +21,6 @@ export class GetGrantList {
             "startRecordNum": 0
         }
         while (downloadedGrants.length < +MAX_ROWS) {
-            console.log('Getting ' + i);
 
             const grantListJson = await this.downloader.download(`https://www.grants.gov/grantsws/rest/opportunities/search/`, JSON.stringify(request), 0, false)
             if (grantListJson.status != 'SUCCESS')

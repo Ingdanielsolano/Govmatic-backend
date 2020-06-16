@@ -1,4 +1,3 @@
-import { IS_PRODUCTION, IS_DEV } from './environment'
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
 export const TYPEORM_CONFIG_DEFAULT: TypeOrmModuleOptions = {
@@ -7,9 +6,9 @@ export const TYPEORM_CONFIG_DEFAULT: TypeOrmModuleOptions = {
   database: process.env.TYPEORM_DATABASE,
   username: process.env.TYPEORM_USERNAME,
   password: process.env.TYPEORM_PASSWORD,
-  ssl: {
+  ssl: process.env.SSL == 'true' ? {
     rejectUnauthorized: false
-  },
+  } : undefined,
   synchronize: true
 };
 
@@ -17,5 +16,5 @@ export const SCHEMA_BUSINESS: TypeOrmModuleOptions = {
   ...TYPEORM_CONFIG_DEFAULT,
   schema: 'business',
   type: 'postgres',
-  entities: [ "dist/db/entities/business/*.js"]
+  entities: ["dist/db/entities/business/*.js"]
 };

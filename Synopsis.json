@@ -1,0 +1,50 @@
+{
+    "opportunityNumber": "G20AS00077",
+    "opportunityTitle": "Cooperative Ecosystem Studies Unit, Pacific Northwest CESU",
+    "opportunityCategory": {
+        "category": "D",
+        "description": "Discretionary"
+    },
+    "fundingInstruments": [
+        {
+            "id": "CA",
+            "description": "Cooperative Agreement"
+        }
+    ],
+    "fundingActivityCategories": [
+        {
+            "id": "ST",
+            "description": "Science and Technology and other Research and Development"
+        }
+    ],
+    "numberOfAwards": "1",
+    "cfdas": [
+        {
+            "id": 382559,
+            "opportunityId": 327703,
+            "revision": 0,
+            "cfdaNumber": "15.808",
+            "programTitle": "U.S. Geological Survey Research and Data Collection"
+        }
+    ],
+    "costSharing": false,
+    "postingDate": "Jun 15, 2020 12:00:00 AM EDT",
+    "lastUpdatedDate": "Jun 15, 2020 09:30:08 AM EDT",
+    "responseDate": "Jun 30, 2020 12:00:00 AM EDT",
+    "archiveDate": "Sep 15, 2020 12:00:00 AM EDT",
+    "awardCeiling": "25475",
+    "estimatedFunding": "25475",
+    "awardFloor": "0",
+    "applicantTypes": [
+        {
+            "id": "25",
+            "description": "Others (see text field entitled \"Additional Information on Eligibility\" for clarification)"
+        }
+    ],
+    "applicantEligibilityDesc": "This financial assistance opportunity is being issued under a \r\nCooperative Ecosystem Studies Unit (CESU) Program.  CESU\u0026iquest;s are \r\npartnerships that provide research, technical assistance, and \r\neducation.  Eligible recipients must be a participating partner of the \r\nPacific Northwest Cooperative Ecosystems Unit (CESU) Program.",
+    "agencyContactName": "Geological Survey",
+    "synopsisDesc": "\u003cp\u003eUS Geological Survey, Columbia Environmental Research Center, is offering a funding opportunity to a CESU Partner to provide expertise in application of lead (Pb) isotopic analyses to establish baseline moss tissue and snowpack elemental isotopic ratios at Bering Land Bridge National Preserve in northwestern Alaska to enable source attribution, and to provide data that will assist with validation of coastal and interior moss tissue concentration-atmospheric deposition models for use in critical loads/early warning signs ecological monitoring.\u003c/p\u003e",
+    "agencyContactDesc": "Faith Graves 703-648-7356\r\nfgraves@usgs.gov",
+    "agencyAddressDesc": "Contract Specialist",
+    "modComments": "TO CHANGE CLOSING DATE"
+}

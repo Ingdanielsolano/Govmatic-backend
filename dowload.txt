@@ -1,0 +1,12 @@
+function downloadAttachment( attId ) {
+		var tag = "downloadAttachment() ";
+		try {
+			var url = '/grantsws/rest/opportunity/att/download/' + attId;
+			//alert( "url: " + url );
+			downloadFile( url, 'attachmentDownload' );
+		} catch ( error ) {
+			alert( tag + error );
+			
+		}
+		
+	}/* downloadAttachment */

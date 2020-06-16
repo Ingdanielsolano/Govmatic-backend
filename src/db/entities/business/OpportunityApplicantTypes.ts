@@ -2,8 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColum
 import { Opportunity } from "./Opportunity";
 import { ApplicantType } from "./ApplicantTypes";
 
-@Entity("opportunity-application_type", { schema: "business" })
-export class OpportunityApplicationType {
+@Entity("opportunity-applicant_type", { schema: "business" })
+export class OpportunityApplicantType {
 
     @PrimaryGeneratedColumn({ type: "bigint", name: "id" })
     id: string;

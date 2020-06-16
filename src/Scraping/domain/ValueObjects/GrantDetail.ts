@@ -4,6 +4,8 @@ import { Package } from "./Package";
 import { Category } from "./Category";
 import { Synopsis } from "./Synopsis";
 import { Agency } from "./Agency";
+import { AttachmentFolder } from "./AttachmentFolder";
+
 
 export class GrantDetail {
     id: String;
@@ -31,4 +33,5 @@ export class GrantDetail {
     assistURL: String
     relatedOpps: []
     draftMode: String
+    synopsisAttachmentFolders: AttachmentFolder[]
 }

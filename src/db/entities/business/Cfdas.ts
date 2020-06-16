@@ -1,5 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, OneToMany, JoinColumn } from "typeorm";
 import { Opportunity } from "./Opportunity";
+import { Package } from "./Package";
+import { OpportunityCfdas } from "./OpportunityCfdas";
 
 @Entity("cfdas", { schema: "business" })
 export class Cfdas {
@@ -17,5 +19,9 @@ export class Cfdas {
     @JoinColumn({ name: 'opportunity' })
     opportunity: Opportunity;
 
+    @OneToMany(() => Package, (packages: Package) => packages.cfdas, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    packages: Package[];
 
+    @OneToMany(() => OpportunityCfdas, (cfdas: OpportunityCfdas) => cfdas.cfdas, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    opportunities: OpportunityCfdas[];
 }

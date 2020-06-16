@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Opportunity } from '../../../db/entities/business/Opportunity';
 import { Repository, LessThan } from 'typeorm';
 import * as moment from 'moment';
+import { Grant } from 'src/db/entities/business/Grant';
 
 @Injectable()
 export class VerifyMustUpdateService {
     constructor(
-        @InjectRepository(Opportunity)
-        private opportunityRepository: Repository<Opportunity>
+        @InjectRepository(Grant)
+        private granttunityRepository: Repository<Grant>
     ) { }
 
     async verify(): Promise<Boolean> {
 
         const today = moment().format('YYYY-MM-DD')
-        const isThereOldsGrants = await this.opportunityRepository.findOne({
+        const isThereOldsGrants = await this.granttunityRepository.findOne({
             lastUpdate: LessThan(today)
         })
 

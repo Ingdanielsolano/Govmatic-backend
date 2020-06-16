@@ -2,7 +2,7 @@ import { Controller, Get, Query } from '@nestjs/common';
 import { ApiOkResponse, ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { StartScrapingService } from '../../domain/services/Start.service';
-import { VerifyMustUpdateService } from '../../../Opportunity/domain/services/VerifyMustUpdate.service';
+import { VerifyMustUpdateService } from '../../../Grant/domain/services/VerifyMustUpdate.service';
 import { GetGrantList } from '../../infrastructure/GetGrantList';
 
 @ApiTags('Scraping')
@@ -15,8 +15,8 @@ export class StartScrapingController {
     ) { }
 
     @Get('start')
-    @ApiOkResponse({ description: 'Client data', type: GeneralResponse })
-    @ApiBadRequestResponse({ description: 'Error: Invalid data', type: GeneralResponse })
+    @ApiOkResponse({ description: 'Process started', type: GeneralResponse })
+    @ApiBadRequestResponse({ description: 'Error: Process cant be started', type: GeneralResponse })
     async startScraping(@Query('force') force: string) {
 
         if (force === 'true') {

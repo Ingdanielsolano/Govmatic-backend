@@ -13,11 +13,12 @@ export class FindOpportunityService {
 
     async find(code: Number): Promise<Opportunity> {
 
-        
-        const isThereOldsGrants = await this.opportunityRepository.findOne({
-            code
-        })
 
-        return isThereOldsGrants
+        // const isThereOldsGrants = await this.opportunityRepository.findOne({
+        //     code
+        // })
+
+        // return isThereOldsGrants
+        return
     }
 }
