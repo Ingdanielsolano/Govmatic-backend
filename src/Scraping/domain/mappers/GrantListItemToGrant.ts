@@ -1,7 +1,7 @@
 import { Agency } from "../../../db/entities/business/Agency";
 import { GrantListItem } from "../ValueObjects/GrantListItem";
-import { Grant } from "src/db/entities/business/Grant";
-import { Opportunity } from "src/db/entities/business/Opportunity";
+import { Grant } from "../../../db/entities/business/Grant";
+import { Opportunity } from "../../../db/entities/business/Opportunity";
 
 export function grantListItemToGrant(grantListItem: GrantListItem): { grant: Grant, opportunity: Opportunity } {
 

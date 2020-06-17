@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { OpportunityFundingCategoryActivity } from 'src/db/entities/business/OpportunityFundingCategoryActivity';
-import { CreateFundingCategoryActivityService } from 'src/FundingCategoryActivity/domain/services/Create.service';
+import { OpportunityFundingCategoryActivity } from '../../../db/entities/business/OpportunityFundingCategoryActivity';
+import { CreateFundingCategoryActivityService } from '../../../FundingCategoryActivity/domain/services/Create.service';
 
 
 @Injectable()

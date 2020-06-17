@@ -5,24 +5,13 @@ import { Opportunity } from '../../../db/entities/business/Opportunity';
 import { Repository } from 'typeorm';
 import { GrantDetail } from '../../../Scraping/domain/ValueObjects/GrantDetail';
 import { grantDetailToGrant } from '../../../Scraping/domain/mappers/GrantDetailToGrant';
-import { CreateCfdaService } from '../../../Cfdas/domain/services/Create.service';
-import { CreateApplicantTypeService } from '../../../ApplicantType/domain/services/Create.service';
-import { CreateOpportunityApplicationTypeService } from '../../../OpportunityApplicationTypes/domain/services/Create.service';
-import { ApplicantType } from '../../../db/entities/business/ApplicantTypes';
-import { CreateFundingCategoryActivityService } from '../../../FundingCategoryActivity/domain/services/Create.service';
-import { FundingCategoryActivity } from '../../../db/entities/business/FundingCategoryActivity';
-import { CreateOpportunityFundingCategoryActivityService } from '../../../OpportunityFundingCategoryActivity/domain/services/Create.service';
-import { FundingInstruments } from '../../../Scraping/domain/ValueObjects/FundingInstruments';
-import { CreateFundingInstrumentsService } from '../../../FundingInstruments/domain/services/Create.service';
-import { CreateOpportunityFundingInstrumentService } from '../../../OpportunityFundingInstruments/domain/services/Create.service';
-import { UpdateAgencyService } from 'src/Agency/services/Update.service';
-import { CreateCategoryService } from 'src/Category/domain/services/Create.service';
-import { Grant } from 'src/db/entities/business/Grant';
-import { CreateAttachmentService } from 'src/Attachment/domain/services/Create.service';
-import { CreateGrantPackageService } from 'src/GrantPackage/domain/services/Create.service';
-import { FindOpportunityService } from 'src/Opportunity/domain/services/FindOpportunity.service';
-import { UpdateOpportunityService } from 'src/Opportunity/domain/services/Update.service';
-import { CreateOpportunityService } from 'src/Opportunity/domain/services/Create.service';
+import { UpdateAgencyService } from '../../../Agency/services/Update.service';
+import { Grant } from '../../../db/entities/business/Grant';
+import { CreateAttachmentService } from '../../../Attachment/domain/services/Create.service';
+import { CreateGrantPackageService } from '../../../GrantPackage/domain/services/Create.service';
+import { FindOpportunityService } from '../../../Opportunity/domain/services/FindOpportunity.service';
+import { UpdateOpportunityService } from '../../../Opportunity/domain/services/Update.service';
+import { CreateOpportunityService } from '../../../Opportunity/domain/services/Create.service';
 
 
 

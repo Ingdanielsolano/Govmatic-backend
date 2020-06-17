@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Grant } from 'src/db/entities/business/Grant';
+import { Grant } from '../../../db/entities/business/Grant';
 import { Repository, LessThan } from 'typeorm';
-import { GeneralResponse } from 'src/common/response/GeneralResponse';
+import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import * as moment from 'moment';
 
 @Injectable()

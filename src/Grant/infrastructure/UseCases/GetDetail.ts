@@ -1,10 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { GeneralResponse } from "../../../common/response/GeneralResponse";
 import * as moment from 'moment';
-import { GrantDetail } from "src/Scraping/domain/ValueObjects/GrantDetail";
-import { FindGrantService } from "src/Grant/domain/services/Find.service";
-import { UpdateDetailGrantService } from "src/Grant/domain/services/UpdateDetail.service";
-import { GetGrantDetail } from "src/Scraping/infrastructure/GetGrantDetail";
+import { GrantDetail } from "../../../Scraping/domain/ValueObjects/GrantDetail";
+import { FindGrantService } from "../../../Grant/domain/services/Find.service";
+import { UpdateDetailGrantService } from "../../../Grant/domain/services/UpdateDetail.service";
+import { GetGrantDetail } from "../../../Scraping/infrastructure/GetGrantDetail";
 
 
 @Injectable()

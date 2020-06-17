@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { OpportunityCfdas } from 'src/db/entities/business/OpportunityCfdas';
-import { CreateCfdaService } from 'src/Cfdas/domain/services/Create.service';
+import { OpportunityCfdas } from '../../../db/entities/business/OpportunityCfdas';
+import { CreateCfdaService } from '../../../Cfdas/domain/services/Create.service';
 
 
 @Injectable()

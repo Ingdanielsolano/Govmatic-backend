@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { Downloader } from "./Downloader";
-import { GeneralResponse } from "src/common/response/GeneralResponse";
+import { GeneralResponse } from "../../common/response/GeneralResponse";
 import { GrantDetail } from "../domain/ValueObjects/GrantDetail";
 
 
@@ -327,9 +327,9 @@ export class GetGrantDetail {
     }
 
     private parseJsonToGrant(grantJson): GrantDetail {
-        
+
         let grant: GrantDetail = { ...new GrantDetail(), ...grantJson };
-        
+
         return grant
     }
 }

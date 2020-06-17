@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
-import { Grant } from 'src/db/entities/business/Grant';
-import { GrantListItem } from 'src/Scraping/domain/ValueObjects/GrantListItem';
-import { grantListItemToGrant } from 'src/Scraping/domain/mappers/GrantListItemToGrant';
-import { Opportunity } from 'src/db/entities/business/Opportunity';
+import { Grant } from '../../../db/entities/business/Grant';
+import { GrantListItem } from '../../../Scraping/domain/ValueObjects/GrantListItem';
+import { grantListItemToGrant } from '../../../Scraping/domain/mappers/GrantListItemToGrant';
+import { Opportunity } from '../../../db/entities/business/Opportunity';
 
 
 

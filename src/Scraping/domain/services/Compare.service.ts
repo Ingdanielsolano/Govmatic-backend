@@ -3,11 +3,11 @@ import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { GrantListItem } from '../ValueObjects/GrantListItem';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { MAX_ROWS } from 'src/common/config/environment';
-import { Grant } from 'src/db/entities/business/Grant';
-import { UpdateGrantService } from 'src/Grant/domain/services/Update.service';
-import { CreateGrantService } from 'src/Grant/domain/services/Create.service';
-import { DeleteOldsGrantsService } from 'src/Grant/domain/services/DeleteOlds.service';
+import { MAX_ROWS } from '../../../common/config/environment';
+import { Grant } from '../../../db/entities/business/Grant';
+import { UpdateGrantService } from '../../../Grant/domain/services/Update.service';
+import { CreateGrantService } from '../../../Grant/domain/services/Create.service';
+import { DeleteOldsGrantsService } from '../../../Grant/domain/services/DeleteOlds.service';
 
 @Injectable()
 export class CompareService {

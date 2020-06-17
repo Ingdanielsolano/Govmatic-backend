@@ -3,12 +3,12 @@ import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Opportunity } from '../../../db/entities/business/Opportunity';
 import { Repository } from 'typeorm';
-import { UpdateAgencyService } from 'src/Agency/services/Update.service';
-import { CreateOpportunityApplicationTypeService } from 'src/OpportunityApplicationTypes/domain/services/Create.service';
-import { CreateCategoryService } from 'src/Category/domain/services/Create.service';
-import { CreateOpportunityCfdasService } from 'src/OpportunityCfdas/domain/services/Create.service';
-import { CreateOpportunityFundingCategoryActivityService } from 'src/OpportunityFundingCategoryActivity/domain/services/Create.service';
-import { CreateOpportunityFundingInstrumentService } from 'src/OpportunityFundingInstruments/domain/services/Create.service';
+import { UpdateAgencyService } from '../../../Agency/services/Update.service';
+import { CreateOpportunityApplicationTypeService } from '../../../OpportunityApplicationTypes/domain/services/Create.service';
+import { CreateCategoryService } from '../../../Category/domain/services/Create.service';
+import { CreateOpportunityCfdasService } from '../../../OpportunityCfdas/domain/services/Create.service';
+import { CreateOpportunityFundingCategoryActivityService } from '../../../OpportunityFundingCategoryActivity/domain/services/Create.service';
+import { CreateOpportunityFundingInstrumentService } from '../../../OpportunityFundingInstruments/domain/services/Create.service';
 
 
 @Injectable()

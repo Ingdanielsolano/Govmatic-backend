@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { GrantListItem } from "../domain/ValueObjects/GrantListItem";
 import { Downloader } from "./Downloader";
-import { MAX_ROWS } from "src/common/config/environment";
+import { MAX_ROWS } from "../../common/config/environment";
 
 @Injectable()
 export class GetGrantList {

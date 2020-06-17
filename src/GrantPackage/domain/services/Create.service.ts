@@ -2,9 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
-import { Attachment } from 'src/db/entities/business/Attachment';
-import { GrantPackage } from 'src/db/entities/business/GrantPackage';
-import { CreatePackageService } from 'src/Package/domain/services/Create.service';
+import { GrantPackage } from '../../../db/entities/business/GrantPackage';
+import { CreatePackageService } from '../../../Package/domain/services/Create.service';
 
 @Injectable()
 export class CreateGrantPackageService {

@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { OpportunityApplicantType } from 'src/db/entities/business/OpportunityApplicantTypes';
-import { CreateApplicantTypeService } from 'src/ApplicantType/domain/services/Create.service';
+import { OpportunityApplicantType } from '../../../db/entities/business/OpportunityApplicantTypes';
+import { CreateApplicantTypeService } from '../../../ApplicantType/domain/services/Create.service';
 
 
 @Injectable()

@@ -4,24 +4,24 @@ import { StartScrapingService } from './domain/services/Start.service';
 import { GetGrantList } from './infrastructure/GetGrantList';
 import { Opportunity } from '../db/entities/business/Opportunity';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { OpportunityFundingCategoryActivity } from 'src/db/entities/business/OpportunityFundingCategoryActivity';
+import { OpportunityFundingCategoryActivity } from '../db/entities/business/OpportunityFundingCategoryActivity';
 import { Downloader } from './infrastructure/Downloader';
 import { Agency } from '../db/entities/business/Agency';
-import { OpportunityApplicantType } from 'src/db/entities/business/OpportunityApplicantTypes';
+import { OpportunityApplicantType } from '../db/entities/business/OpportunityApplicantTypes';
 import { Grant } from '../db/entities/business/Grant';
 import { VerifyMustUpdateService } from '../Grant/domain/services/VerifyMustUpdate.service';
-import { ApplicantType } from 'src/db/entities/business/ApplicantTypes';
-import { OpportunityCfdas } from 'src/db/entities/business/OpportunityCfdas';
-import { Cfdas } from 'src/db/entities/business/Cfdas';
-import { Category } from 'src/db/entities/business/Category';
-import { OpportunityFundingInstrument } from 'src/db/entities/business/OpportunityFundingInstrument';
-import { FundingInstrument } from 'src/db/entities/business/FundingInstrument';
-import { FundingCategoryActivity } from 'src/db/entities/business/FundingCategoryActivity';
+import { ApplicantType } from '../db/entities/business/ApplicantTypes';
+import { OpportunityCfdas } from '../db/entities/business/OpportunityCfdas';
+import { Cfdas } from '../db/entities/business/Cfdas';
+import { Category } from '../db/entities/business/Category';
+import { OpportunityFundingInstrument } from '../db/entities/business/OpportunityFundingInstrument';
+import { FundingInstrument } from '../db/entities/business/FundingInstrument';
+import { FundingCategoryActivity } from '../db/entities/business/FundingCategoryActivity';
 import { CompareService } from './domain/services/Compare.service';
-import { CreateGrantService } from 'src/Grant/domain/services/Create.service';
-import { UpdateGrantService } from 'src/Grant/domain/services/Update.service';
-import { DeleteOldsGrantsService } from 'src/Grant/domain/services/DeleteOlds.service';
-import { CreateAgencyService } from 'src/Agency/services/Create.service';
+import { CreateGrantService } from '../Grant/domain/services/Create.service';
+import { UpdateGrantService } from '../Grant/domain/services/Update.service';
+import { DeleteOldsGrantsService } from '../Grant/domain/services/DeleteOlds.service';
+import { CreateAgencyService } from '../Agency/services/Create.service';
 
 
 @Module({

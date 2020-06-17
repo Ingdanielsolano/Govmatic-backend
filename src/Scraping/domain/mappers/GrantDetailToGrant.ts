@@ -1,4 +1,4 @@
-import { Opportunity } from "src/db/entities/business/Opportunity";
+import { Opportunity } from "../../../db/entities/business/Opportunity";
 import { Agency } from "../../../db/entities/business/Agency";
 import { Category } from "../../../db/entities/business/Category";
 import { Cfdas } from "../../../db/entities/business/Cfdas";
@@ -6,10 +6,10 @@ import { ApplicantType } from "../../../db/entities/business/ApplicantTypes";
 import { FundingCategoryActivity } from "../../../db/entities/business/FundingCategoryActivity";
 import { FundingInstrument } from "../../../db/entities/business/FundingInstrument";
 import { GrantDetail } from "../ValueObjects/GrantDetail";
-import { Package } from "src/db/entities/business/Package";
-import { Grant } from "src/db/entities/business/Grant";
-import { AttachmentFolder } from "src/db/entities/business/Attachment_folder";
-import { Attachment } from "src/db/entities/business/Attachment";
+import { Package } from "../../../db/entities/business/Package";
+import { Grant } from "../../../db/entities/business/Grant";
+import { AttachmentFolder } from "../../../db/entities/business/Attachment_folder";
+import { Attachment } from "../../../db/entities/business/Attachment";
 
 export function grantDetailToGrant(grantDetail: GrantDetail): Grant {
 

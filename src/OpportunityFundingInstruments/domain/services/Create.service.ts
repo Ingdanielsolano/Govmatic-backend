@@ -3,7 +3,7 @@ import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { OpportunityFundingInstrument } from '../../../db/entities/business/OpportunityFundingInstrument';
-import { CreateFundingInstrumentsService } from 'src/FundingInstruments/domain/services/Create.service';
+import { CreateFundingInstrumentsService } from '../../../FundingInstruments/domain/services/Create.service';
 
 
 @Injectable()

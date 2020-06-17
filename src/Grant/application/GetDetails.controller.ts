@@ -1,6 +1,6 @@
 import { Controller, Get, Query, Post, Body } from '@nestjs/common';
 import { ApiOkResponse, ApiBadRequestResponse, ApiTags } from '@nestjs/swagger';
-import { GeneralResponse } from 'src/common/response/GeneralResponse';
+import { GeneralResponse } from '../../common/response/GeneralResponse';
 import { DetailDto } from '../infrastructure/dto/Detail';
 import { GetGrantDetailUseCase } from '../infrastructure/UseCases/GetDetail';
 

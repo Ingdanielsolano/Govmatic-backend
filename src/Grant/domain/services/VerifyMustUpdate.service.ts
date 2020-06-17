@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThan } from 'typeorm';
 import * as moment from 'moment';
-import { Grant } from 'src/db/entities/business/Grant';
+import { Grant } from '../../../db/entities/business/Grant';
 
 @Injectable()
 export class VerifyMustUpdateService {

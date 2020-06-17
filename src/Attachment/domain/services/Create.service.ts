@@ -3,8 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
 
-import { Attachment } from 'src/db/entities/business/Attachment';
-import { CreateAttachmentFolderService } from 'src/AttachmentFolder/domain/services/Create.service';
+import { Attachment } from '../../../db/entities/business/Attachment';
+import { CreateAttachmentFolderService } from '../../../AttachmentFolder/domain/services/Create.service';
 
 @Injectable()
 export class CreateAttachmentService {

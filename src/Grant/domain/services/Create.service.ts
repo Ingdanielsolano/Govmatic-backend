@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Grant } from 'src/db/entities/business/Grant';
+import { Grant } from '../../../db/entities/business/Grant';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateAgencyService } from '../../../Agency/services/Create.service';

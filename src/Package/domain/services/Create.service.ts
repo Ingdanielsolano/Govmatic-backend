@@ -2,8 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
-import { CreateAttachmentFolderService } from 'src/AttachmentFolder/domain/services/Create.service';
-import { Package } from 'src/db/entities/business/Package';
+import { Package } from '../../../db/entities/business/Package';
 
 @Injectable()
 export class CreatePackageService {

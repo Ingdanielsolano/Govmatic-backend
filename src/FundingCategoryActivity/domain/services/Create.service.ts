@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { GeneralResponse } from '../../../common/response/GeneralResponse';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { FundingCategoryActivity } from 'src/db/entities/business/FundingCategoryActivity';
+import { FundingCategoryActivity } from '../../../db/entities/business/FundingCategoryActivity';
 
 
 @Injectable()
