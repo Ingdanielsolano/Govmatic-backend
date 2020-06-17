@@ -17,6 +17,7 @@ export class GetListGrantService {
             .createQueryBuilder('grant')
             .select('grant')
             .innerJoinAndSelect('grant.opportunities', 'opportunities')
+            .innerJoinAndSelect('grant.agency', 'agency')
             .skip(20 * (page - 1))
             .take(20)
             .orderBy('opportunities.postingDate','DESC')
