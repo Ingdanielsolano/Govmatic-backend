@@ -24,8 +24,8 @@ export class UpdateOpportunityService {
         private readonly createOpportunityFundingInstrumentService: CreateOpportunityFundingInstrumentService,
     ) { }
 
-    async update(opportunity: Opportunity): Promise<GeneralResponse> {        
-        
+    async update(opportunity: Opportunity): Promise<GeneralResponse> {
+
         const updatedAgency = await this.updateAgencyService.update(opportunity.agency)
         opportunity.agency.id = updatedAgency.payload.id
         for (let i = 0; i < opportunity.applicantTypes.length; i++) {
@@ -56,7 +56,7 @@ export class UpdateOpportunityService {
             fundingInstruments.opportunity.id = opportunity.id;
             const newFundingInstruments = await this.createOpportunityFundingInstrumentService.create(fundingInstruments)
         }
-        
+
         const updatedOpportunity = await this.opportunityRepository.update({ id: opportunity.id }, {
             applicantElegibilityDesc: opportunity.applicantElegibilityDesc,
             archiveDate: opportunity.archiveDate,
@@ -70,7 +70,8 @@ export class UpdateOpportunityService {
             postingDate: opportunity.postingDate,
             responseDate: opportunity.responseDate,
             responseDateDesc: opportunity.responseDateDesc,
-            synopsisDesc: opportunity.synopsisDesc
+            synopsisDesc: opportunity.synopsisDesc,
+            grant: { id: opportunity.grant.id }
         })
 
         if (updatedOpportunity.affected > 0)

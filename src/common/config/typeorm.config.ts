@@ -12,9 +12,6 @@ export const TYPEORM_CONFIG_DEFAULT: TypeOrmModuleOptions = {
   synchronize: true
 };
 
-console.log(TYPEORM_CONFIG_DEFAULT);
-
-
 export const SCHEMA_BUSINESS: TypeOrmModuleOptions = {
   ...TYPEORM_CONFIG_DEFAULT,
   schema: 'business',

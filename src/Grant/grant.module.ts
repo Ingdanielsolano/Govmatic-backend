@@ -44,6 +44,8 @@ import { Package } from '../db/entities/business/Package';
 import { GrantPackage } from '../db/entities/business/GrantPackage';
 import { FindOpportunityService } from '../Opportunity/domain/services/FindOpportunity.service';
 import { UpdateOpportunityService } from '../Opportunity/domain/services/Update.service';
+import { GetGrantListController } from './application/GetGrantList.controller';
+import { GetListGrantService } from './domain/services/GetList.service';
 
 @Module({
     imports: [
@@ -66,7 +68,7 @@ import { UpdateOpportunityService } from '../Opportunity/domain/services/Update.
             GrantPackage
         ])
     ],
-    controllers: [GetGrantController],
+    controllers: [GetGrantController, GetGrantListController],
     providers: [
         CompareService,
         CreateGrantService,
@@ -94,7 +96,8 @@ import { UpdateOpportunityService } from '../Opportunity/domain/services/Update.
         CreateGrantPackageService,
         CreatePackageService,
         FindOpportunityService,
-        UpdateOpportunityService        
+        UpdateOpportunityService,
+        GetListGrantService
     ]
 })
 export class GrantModule { }

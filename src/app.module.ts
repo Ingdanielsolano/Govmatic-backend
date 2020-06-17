@@ -1,6 +1,4 @@
 import * as dotenv from 'dotenv';
-console.log(process.argv[2]);
-
 dotenv.config({ path: `./env/${process.argv[2]}` });
 
 import { Module } from '@nestjs/common';

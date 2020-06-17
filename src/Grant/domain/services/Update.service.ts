@@ -28,7 +28,7 @@ export class UpdateGrantService {
         // if (updatedGrant.affected > 0)
         //     return { status: 'SUCCESS', message: 'Grant updated', payload: updatedGrant }
 
-        const updatedOpportunity = await this.opportunityRepository.update({ grant: { id: foundGrant.id } }, opportunity)
+        const updatedOpportunity = await this.opportunityRepository.update({ grant: { id: foundGrant.id } }, { ...opportunity, grant: { id: foundGrant.id } })
 
         if (updatedGrant.affected > 0)
             return { status: 'SUCCESS', message: 'Grant updated', payload: updatedGrant }
