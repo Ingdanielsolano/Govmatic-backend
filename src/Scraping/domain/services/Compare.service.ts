@@ -30,7 +30,7 @@ export class CompareService {
 
         for (let grant of grants) {
             const foundGrant = await this.grantRepository.findOne({
-                where: { number: grant.number },
+                where: { number: grant.id },
                 relations: ['agency']
             })
 

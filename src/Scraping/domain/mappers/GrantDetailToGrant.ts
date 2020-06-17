@@ -11,22 +11,14 @@ import { Grant } from "src/db/entities/business/Grant";
 import { AttachmentFolder } from "src/db/entities/business/Attachment_folder";
 import { Attachment } from "src/db/entities/business/Attachment";
 
-export function grantDetailToGrant(grantDetail: GrantDetail): {
-    opportunity: Opportunity,
-    grant: Grant,
-    applicantTypes: ApplicantType[],
-    fundingCategoryActivities: FundingCategoryActivity[],
-    fundingInstruments: FundingInstrument[],
-    cfdas: Cfdas[]
-} {
+export function grantDetailToGrant(grantDetail: GrantDetail): Grant {
 
     let grant = new Grant();
     grant.agency = new Agency();
     grant.agency.code = grantDetail.topAgencyDetails.code
     grant.agency.image = grantDetail.topAgencyDetails.agencyCode
     grant.agency.name = grantDetail.topAgencyDetails.agencyName
-
-    let attachmentFolder: AttachmentFolder[] = []
+    grant.attachments = []
     for (const folder of grantDetail.synopsisAttachmentFolders) {
         let newFolder = new AttachmentFolder()
         newFolder.number = folder.id
@@ -39,14 +31,56 @@ export function grantDetailToGrant(grantDetail: GrantDetail): {
             newFile.number = file.id
             newFile.name = file.fileName
             newFile.description = file.fileDescription
-            newFolder.attachments.push(newFile)
+            newFile.attachmentFolder = newFolder;
             grant.attachments.push(newFile)
         }
     }
 
-    let cfdas: Cfdas[] = []
-    for (const cfda of grantDetail.cfdas) {
+    grant.grantPackage = []
+    for (const _package of grantDetail.opportunityPkgs) {
+        let newPackage = new Package()
+        newPackage.cfdas = new Cfdas()
+        newPackage.cfdas.number = _package.cfdaNumber
+        newPackage.competitionId = _package.competitionId
+        newPackage.competitionTitle = _package.competitionTitle
+        newPackage.number = _package.packageId
+        newPackage.openingDate = _package.openingDateStr
+        newPackage.closingDate = _package.closingDateStr
+        newPackage.title = _package.programTitle
+        newPackage.packageId = _package.packageId
+        grant.grantPackage.push({ id: undefined, grant: grant, package: newPackage })
+    }
 
+    let mainOpportunity: Opportunity = new Opportunity()
+    mainOpportunity.responseDateDesc = grantDetail.synopsis.responseDateDesc
+    mainOpportunity.title = grantDetail.opportunityTitle
+    mainOpportunity.number = grantDetail.opportunityNumber
+    mainOpportunity.numberOfAwards = +grantDetail.synopsis.numberOfAwards
+    mainOpportunity.costSharing = grantDetail.synopsis.costSharing
+    mainOpportunity.postingDate = grantDetail.synopsis.postingDate
+    mainOpportunity.lastUpdateDate = grantDetail.synopsis.lastUpdatedDate
+    mainOpportunity.responseDate = grantDetail.synopsis.responseDate
+    mainOpportunity.responseDateDesc = grantDetail.synopsis.responseDateDesc
+    mainOpportunity.responseDate = grantDetail.synopsis.responseDate
+    mainOpportunity.archiveDate = grantDetail.synopsis.archiveDate
+    mainOpportunity.awardCeiling = grantDetail.synopsis.awardCeiling
+    mainOpportunity.estimatedFunding = grantDetail.synopsis.estimatedFunding
+    mainOpportunity.awardFloor = grantDetail.synopsis.awardFloor
+    mainOpportunity.applicantElegibilityDesc = grantDetail.synopsis.applicantEligibilityDesc
+    mainOpportunity.synopsisDesc = grantDetail.synopsis.synopsisDesc
+    mainOpportunity.agency = new Agency()
+    mainOpportunity.agency.code = grantDetail.synopsis.agencyDetails.agencyCode
+    mainOpportunity.agency.name = grantDetail.synopsis.agencyDetails.agencyName
+    mainOpportunity.agency.contact = grantDetail.synopsis.agencyContactDesc
+    mainOpportunity.agency.email = grantDetail.synopsis.agencyContactEmail
+    mainOpportunity.agency.code = grantDetail.synopsis.agencyName
+    mainOpportunity.agency.address = grantDetail.synopsis.agencyAddressDesc
+    mainOpportunity.cfdas = []
+    mainOpportunity.category = new Category()
+    mainOpportunity.category.name = grantDetail.opportunityCategory.category
+    mainOpportunity.category.description = grantDetail.opportunityCategory.description
+
+    for (const cfda of grantDetail.cfdas) {
         if (!cfda.cfdaNumber || !cfda.cfdaNumber)
             continue
 
@@ -54,86 +88,109 @@ export function grantDetailToGrant(grantDetail: GrantDetail): {
         newCfdasDb.opportunity = new Opportunity()
         newCfdasDb.number = cfda.cfdaNumber
         newCfdasDb.programTitle = cfda.programTitle
-        cfdas.push(newCfdasDb)
+        mainOpportunity.cfdas.push({ id: undefined, opportunity: mainOpportunity, cfdas: newCfdasDb })
     }
 
-    let opportunity: Opportunity = new Opportunity();
+    mainOpportunity.applicantTypes = []
+    for (const applicantType of grantDetail.synopsis.applicantTypes) {
+        let newApplicationType = new ApplicantType()
+        newApplicationType.code = applicantType.id
+        newApplicationType.description = applicantType.description
+        mainOpportunity.applicantTypes.push({ id: undefined, opportunity: mainOpportunity, applicantTypes: newApplicationType })
+    }
 
-    // opportunity.agency = new Agency()
-    // opportunity.agency.code = grant.agencyDetails.agencyCode
-    // opportunity.agency.addressDesc = grant.synopsis.agencyAddressDesc
-    // opportunity.agency.contactEmail = grant.synopsis.agencyContactEmail
-    // opportunity.agency.contactEmailDesc = grant.synopsis.agencyContactDesc
-    // opportunity.agency.contactName = grant.synopsis.agencyContactName
-    // opportunity.agency.name = grant.synopsis.agencyName
+    mainOpportunity.fundingCategoryActivities = []
+    for (const fundingActivityCategories of grantDetail.synopsis.fundingActivityCategories) {
+        let newFundingCategory = new FundingCategoryActivity()
+        newFundingCategory.code = fundingActivityCategories.id
+        newFundingCategory.description = fundingActivityCategories.description
+        mainOpportunity.fundingCategoryActivities.push({ id: undefined, opportunity: mainOpportunity, fundingCategoryActivity: newFundingCategory })
+    }
 
-    // opportunity.costSharing = grant.synopsis.costSharing ? 'true' : 'false'
-    // opportunity.docType = grant.docType
-    // opportunity.estimatedFunding = grant.synopsis.estimatedFunding
-    // opportunity.fundingDescLinkDesc = grant.synopsis.fundingDescLinkDesc
-    // opportunity.fundingDescLinkUrl = grant.synopsis.fundingDescLinkUrl
-    // opportunity.numberOfAwards = grant.synopsis.numberOfAwards
-    // opportunity.responseDate = grant.synopsis.responseDate
-    // opportunity.synopsisDesc = grant.synopsis.synopsisDesc
-    // opportunity.number = grant.opportunityNumber
-    // opportunity.fundingDescLinkDesc = grant.synopsis.fundingDescLinkDesc
-    // opportunity.archiveDate = grant.synopsis.archiveDate
-    // opportunity.awardCeiling = grant.synopsis.awardCeiling
-    // opportunity.awardFloor = grant.synopsis.awardFloor
-    // opportunity.applicationElegibilityDesc = grant.synopsis.applicantEligibilityDesc
+    mainOpportunity.fundingInstruments = []
+    for (const fundingInstrument of grantDetail.synopsis.fundingInstruments) {
+        let newFundingCategory = new FundingInstrument()
+        newFundingCategory.code = fundingInstrument.id
+        newFundingCategory.description = fundingInstrument.description
+        mainOpportunity.fundingInstruments.push({ id: undefined, opportunity: mainOpportunity, fundingInstrument: newFundingCategory })
+    }
 
-    // opportunity.category = new Category()
-    // opportunity.category.name = grant.opportunityCategory.category
-    // opportunity.category.description = grant.opportunityCategory.description
+    grant.opportunities = []
+    for (const synopsis of grantDetail.opportunityHistoryDetails) {
+
+        let opportunity = new Opportunity()
+        opportunity.responseDateDesc = synopsis.synopsis.responseDateDesc
+        opportunity.title = synopsis.opportunityTitle
+        opportunity.number = synopsis.opportunityNumber
+        opportunity.numberOfAwards = +synopsis.synopsis.numberOfAwards
+        opportunity.costSharing = synopsis.synopsis.costSharing
+        opportunity.postingDate = synopsis.synopsis.postingDate
+        opportunity.lastUpdateDate = synopsis.synopsis.lastUpdatedDate
+        opportunity.responseDate = synopsis.synopsis.responseDate
+        opportunity.responseDateDesc = synopsis.synopsis.responseDateDesc
+        opportunity.responseDate = synopsis.synopsis.responseDate
+        opportunity.archiveDate = synopsis.synopsis.archiveDate
+        opportunity.awardCeiling = synopsis.synopsis.awardCeiling
+        opportunity.estimatedFunding = synopsis.synopsis.estimatedFunding
+        opportunity.awardFloor = synopsis.synopsis.awardFloor
+        opportunity.applicantElegibilityDesc = synopsis.synopsis.applicantEligibilityDesc
+        opportunity.synopsisDesc = synopsis.synopsis.synopsisDesc
+
+        opportunity.agency = new Agency()
+        opportunity.agency.code = synopsis.synopsis.agencyDetails.agencyCode
+        opportunity.agency.name = synopsis.synopsis.agencyDetails.agencyName
+        opportunity.agency.contact = synopsis.synopsis.agencyContactDesc
+        opportunity.agency.email = synopsis.synopsis.agencyContactEmail
+        opportunity.agency.address = synopsis.synopsis.agencyAddressDesc
+
+        opportunity.category = new Category()
+        opportunity.category.name = synopsis.opportunityCategory.category
+        opportunity.category.description = synopsis.opportunityCategory.description
+
+        opportunity.applicantTypes = []
+        for (const applicantType of synopsis.synopsis.applicantTypes) {
+            let newApplicationType = new ApplicantType()
+            newApplicationType.code = applicantType.id
+            newApplicationType.description = applicantType.description
+            opportunity.applicantTypes.push({ id: undefined, opportunity: mainOpportunity, applicantTypes: newApplicationType })
+        }
+
+        opportunity.fundingCategoryActivities = []
+        for (const fundingActivityCategories of synopsis.synopsis.fundingActivityCategories) {
+            let newFundingCategory = new FundingCategoryActivity()
+            newFundingCategory.code = fundingActivityCategories.id
+            newFundingCategory.description = fundingActivityCategories.description
+            opportunity.fundingCategoryActivities.push({ id: undefined, opportunity: mainOpportunity, fundingCategoryActivity: newFundingCategory })
+        }
+
+        opportunity.fundingInstruments = []
+        for (const fundingInstrument of synopsis.synopsis.fundingInstruments) {
+            let newFundingCategory = new FundingInstrument()
+            newFundingCategory.code = fundingInstrument.id
+            newFundingCategory.description = fundingInstrument.description
+            opportunity.fundingInstruments.push({ id: undefined, opportunity: mainOpportunity, fundingInstrument: newFundingCategory })
+        }
+
+        opportunity.cfdas = []
+        for (const cfda of synopsis.cfdas) {
+            if (!cfda.cfdaNumber)
+                continue
+
+            let newCfdasDb = new Cfdas()
+            newCfdasDb.opportunity = new Opportunity()
+            newCfdasDb.number = cfda.cfdaNumber
+            newCfdasDb.programTitle = cfda.programTitle
+            opportunity.cfdas.push({ id: undefined, opportunity: mainOpportunity, cfdas: newCfdasDb })
+        }
+
+        grant.opportunities.push(opportunity)
+    }
+
+    grant.opportunities.push(mainOpportunity)
+
+    // console.log(grant.opportunities.map(opp => opp.cfdas.map(cf=>cf.cfdas)));
 
 
-
-    // let applicantTypes: ApplicantType[] = []
-
-    // for (const applicantType of grant.synopsis.applicantTypes) {
-    //     let newApplicationTypeDb = new ApplicantType()
-    //     newApplicationTypeDb.code = applicantType.id
-    //     newApplicationTypeDb.description = applicantType.description
-    //     applicantTypes.push(newApplicationTypeDb)
-    // }
-
-    // let fundingCategoryActivities: FundingCategoryActivity[] = []
-
-    // for (const fundingActivityCategories of grant.synopsis.fundingActivityCategories) {
-    //     let newFundingCategory = new FundingCategoryActivity()
-    //     newFundingCategory.code = fundingActivityCategories.id
-    //     newFundingCategory.description = fundingActivityCategories.description
-    //     fundingCategoryActivities.push(newFundingCategory)
-    // }
-
-    // let fundingInstruments: FundingInstrument[] = []
-
-    // for (const fundingInstrument of grant.synopsis.fundingInstruments) {
-    //     let newFundingCategory = new FundingInstrument()
-    //     newFundingCategory.code = fundingInstrument.id
-    //     newFundingCategory.description = fundingInstrument.description
-    //     fundingInstruments.push(newFundingCategory)
-    // }
-
-    // opportunity.category = new Category();
-    // opportunity.category.name = grant.opportunityCategory.category
-    // opportunity.category.description = grant.opportunityCategory.description
-
-    // let packages: Package[] = []
-    // for (const _package of grant.opportunityPkgs) {
-    //     let newPackage = new Package()
-    //     newPackage.cfdas = new Cfdas()
-    //     newPackage.cfdas.number = _package.cfdaNumber
-    //     newPackage.competition = _package.competitionId
-    //     newPackage.competitionTitle = _package.competitionTitle
-    //     newPackage.number = _package.packageId
-    //     newPackage.openingDate = _package.openingDateStr
-    //     newPackage.closingDate = _package.closingDateStr
-
-    //     packages.push(newPackage)
-    // }
-
-    // return { opportunity, applicantTypes, fundingCategoryActivities, fundingInstruments, cfdas };
-    return
+    return grant;
 
 }

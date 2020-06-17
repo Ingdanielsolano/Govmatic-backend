@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { GeneralResponse } from '../../common/response/GeneralResponse';
-import { Agency } from '../../db/entities/business/Agency';
+import { GeneralResponse } from '../../../common/response/GeneralResponse';
+import { Agency } from '../../../db/entities/business/Agency';
 import { Category } from 'src/db/entities/business/Category';
 
 @Injectable()
-export class CreateCategoryervice {
+export class CreateCategoryService {
     constructor(
         @InjectRepository(Category) private categoryRepository: Repository<Category>
     ) { }

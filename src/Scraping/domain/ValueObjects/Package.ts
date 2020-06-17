@@ -8,4 +8,5 @@ export class Package {
     packageId: String
     openingDateStr: String
     closingDateStr: String
+    programTitle: String
 }

@@ -5,6 +5,7 @@ import { Category } from "./Category";
 import { Synopsis } from "./Synopsis";
 import { Agency } from "./Agency";
 import { AttachmentFolder } from "./AttachmentFolder";
+import { OpportunityHistory } from "./OpportunityHistory";
 
 
 export class GrantDetail {
@@ -15,10 +16,10 @@ export class GrantDetail {
     owningAgencyCode: String;
     opportunityCategory: Category
     synopsis: Synopsis
+    opportunityHistoryDetails: OpportunityHistory[]
     agencyDetails: Agency
     topAgencyDetails: Agency
     cfdas: Cfdas[]
-    opportunityHistoryDetails: []
     opportunityPkgs: Package[]
     closedOpportunityPkgs: []
     originalDueDate: String
@@ -33,5 +34,5 @@ export class GrantDetail {
     assistURL: String
     relatedOpps: []
     draftMode: String
-    synopsisAttachmentFolders: AttachmentFolder[]
+    synopsisAttachmentFolders: any[]
 }

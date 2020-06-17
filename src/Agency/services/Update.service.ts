@@ -7,7 +7,8 @@ import { Agency } from '../../db/entities/business/Agency';
 @Injectable()
 export class UpdateAgencyService {
     constructor(
-        @InjectRepository(Agency) private agencyRepository: Repository<Agency>
+        @InjectRepository(Agency) 
+        private agencyRepository: Repository<Agency>
     ) { }
 
     async update(agency: Agency): Promise<GeneralResponse> {
@@ -15,12 +16,15 @@ export class UpdateAgencyService {
 
             const savedAgency = await this.agencyRepository.findOne({ where: [{ id: agency.id }, { code: agency.code }] })
 
-            const newAgency = await this.agencyRepository.update(savedAgency, agency)
+            if (savedAgency) {
+                const newAgency = await this.agencyRepository.update(savedAgency, agency)
+                if (newAgency)
+                    return { status: 'SUCCESS', message: 'Agencia created', payload: savedAgency }
+            }
 
-            if (newAgency)
-                return { status: 'SUCCESS', message: 'Agencia created', payload: savedAgency }
+            const createdAgency = await this.agencyRepository.save(agency)
 
-            return { status: 'ERR0R_SAVING_AGENCY', message: 'Agency was not updated', payload: savedAgency }
+            return { status: 'ERR0R_SAVING_AGENCY', message: 'Agency was not updated', payload: createdAgency }
 
         } catch (error) {
             return { status: 'ERR0R_SAVING_AGENCY', message: 'Agency was not created', payload: error }

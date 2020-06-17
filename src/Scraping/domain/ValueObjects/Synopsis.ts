@@ -19,11 +19,12 @@ export class Synopsis {
     agencyContactEmailDesc: String
     synopsisDesc: String
     responseDate: String
+    responseDateDesc: String
     fundingDescLinkUrl: String
     fundingDescLinkDesc: String
     postingDate: String
     archiveDate: String
-    costSharing: boolean
+    costSharing: String
     numberOfAwards: String
     estimatedFunding: String
     estimatedFundingFormatted: String
@@ -42,4 +43,6 @@ export class Synopsis {
     postingDateStr: String
     archiveDateStr: String
     createTimeStampStr: String
+    opportunityNumber: String;
+    opportunityTitle: String
 }

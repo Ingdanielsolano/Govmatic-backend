@@ -7,7 +7,7 @@ export function grantListItemToGrant(grantListItem: GrantListItem): { grant: Gra
 
 
     let grant = new Grant()
-    grant.number = grantListItem.number;
+    grant.number = grantListItem.id;
     grant.title = grantListItem.title;
     grant.status = grantListItem.oppStatus;
     grant.agency = new Agency();

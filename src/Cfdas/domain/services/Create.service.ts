@@ -19,10 +19,10 @@ export class CreateCfdaService {
         if (cfdasExists)
             return {
                 status: 'SUCCESS', message: 'Cfdas created', payload: cfdasExists
-            }
-
+            }        
+        
         const newCfdas = await this.cfdasRepository.save(cfdas)
 
-        return { status: 'SUCCESS', message: 'Cfdas created', payload: newCfdas }
+        return { status: 'SUCCESS', message: 'Cfdas created', payload: 'newCfdas' }
     }
 }

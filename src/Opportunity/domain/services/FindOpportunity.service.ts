@@ -11,14 +11,15 @@ export class FindOpportunityService {
         private opportunityRepository: Repository<Opportunity>
     ) { }
 
-    async find(code: Number): Promise<Opportunity> {
+    async find(code: String): Promise<Opportunity> {
 
 
-        // const isThereOldsGrants = await this.opportunityRepository.findOne({
-        //     code
-        // })
+        const foundOpportunity = await this.opportunityRepository.findOne({
+            where: {
+                number: code
+            }
+        })
 
-        // return isThereOldsGrants
-        return
+        return foundOpportunity
     }
 }

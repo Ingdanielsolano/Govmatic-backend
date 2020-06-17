@@ -1,6 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn, OneToMany } from "typeorm";
 import { Package } from "./Package";
 import { Grant } from "./Grant";
+import { Opportunity } from "./Opportunity";
 
 @Entity("agency", { schema: "business" })
 export class Agency {
@@ -14,7 +15,7 @@ export class Agency {
     @Column("character varying", { name: "code", length: 45, unique: true })
     code: String;
 
-    @Column("character varying", { name: "image", length: 45, unique: true })
+    @Column("character varying", { name: "image", length: 45, nullable: true })
     image: String;
 
     @Column("character varying", { name: "address", length: 200, nullable: true })
@@ -31,4 +32,7 @@ export class Agency {
 
     @OneToMany(() => Package, (packages: Package) => packages.agency, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     packages: Package[];
+
+    @OneToMany(() => Opportunity, (opportunities: Opportunity) => opportunities.agency, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    opportunities: Opportunity[];
 }

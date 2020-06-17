@@ -1,6 +1,6 @@
 
 export class GrantListItem {
-    id: Number;
+    id: String;
     number: String;
     title: String;
     agencyCode: String;

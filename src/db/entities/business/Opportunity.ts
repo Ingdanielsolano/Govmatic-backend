@@ -6,6 +6,7 @@ import { OpportunityApplicantType } from "./OpportunityApplicantTypes";
 import { OpportunityFundingInstrument } from "./OpportunityFundingInstrument";
 import { OpportunityFundingCategoryActivity } from "./OpportunityFundingCategoryActivity";
 import { Grant } from "./Grant";
+import { OpportunityCfdas } from "./OpportunityCfdas";
 
 @Entity("opportunity", { schema: "business" })
 export class Opportunity {
@@ -38,6 +39,9 @@ export class Opportunity {
     @Column("date", { name: "response_date", nullable: true })
     responseDate: String;
 
+    @Column("date", { name: "response_date_desc", nullable: true })
+    responseDateDesc: String;
+
     @Column("date", { name: "archive_date", nullable: true })
     archiveDate: String;
 
@@ -56,8 +60,8 @@ export class Opportunity {
     @Column("text", { name: 'synopsis_desc', nullable: true })
     synopsisDesc: String;
 
-    @OneToMany(() => Cfdas, (cfdas: Cfdas) => cfdas.opportunity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
-    cfdas: Cfdas[];
+    @OneToMany(() => OpportunityCfdas, (cfdas: OpportunityCfdas) => cfdas.opportunity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    cfdas: OpportunityCfdas[];
 
     @OneToMany(() => OpportunityApplicantType, (applicationTypes: OpportunityApplicantType) => applicationTypes.opportunity, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     applicantTypes: OpportunityApplicantType[];
@@ -71,4 +75,8 @@ export class Opportunity {
     @ManyToOne(() => Grant, (grant: Grant) => grant.opportunities, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
     @JoinColumn({ name: 'grant' })
     grant: Grant;
+
+    @ManyToOne(() => Agency, (agency: Agency) => agency.opportunities, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+    @JoinColumn({ name: 'agency' })
+    agency: Agency;
 }

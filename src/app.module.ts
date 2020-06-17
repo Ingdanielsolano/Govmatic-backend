@@ -7,13 +7,13 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { SCHEMA_BUSINESS } from './common/config/typeorm.config';
 import { ScrapingModule } from './Scraping/Scraping.module';
-import { OpportunityModule } from './Opportunity/opportunity.module';
+import { GrantModule } from './Grant/grant.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(SCHEMA_BUSINESS),
     ScrapingModule,
-    OpportunityModule
+    GrantModule
   ],
   controllers: [AppController],
   providers: [AppService],
